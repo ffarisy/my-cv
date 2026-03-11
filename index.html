@@ -66,8 +66,6 @@
       padding: 80px 0 60px;
     }
 
-    .hero-text { }
-
     .hero-eyebrow {
       font-family: 'Space Mono', monospace;
       font-size: 11px;
@@ -199,7 +197,6 @@
     .photo-placeholder:hover { border-color: var(--gold-dim); }
     .photo-placeholder i { font-size: 32px; color: var(--text-muted); }
 
-    /* Upload hint */
     .photo-hint {
       font-size: 10px;
       color: var(--text-muted);
@@ -209,7 +206,6 @@
     }
     .photo-hint strong { color: var(--gold-dim); }
 
-    /* Stats row */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -373,7 +369,6 @@
     .card-body ul { padding-left: 20px; }
     .card-body li { margin-bottom: 4px; }
 
-    /* Education special */
     .edu-gpa {
       display: inline-block;
       background: rgba(200,169,110,0.12);
@@ -490,7 +485,6 @@
       line-height: 1.7;
     }
 
-    /* IELTS scores */
     .ielts-grid {
       display: grid;
       grid-template-columns: repeat(5, 1fr);
@@ -612,7 +606,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      flex-wrap: gap;
+      flex-wrap: wrap; /* FIXED: was gap */
       gap: 16px;
       color: var(--text-muted);
       font-size: 10px;
@@ -631,7 +625,6 @@
       .card-meta { flex-direction: column; gap: 8px; }
     }
 
-    /* Print */
     @media print {
       #stars, .sticky-nav { display: none; }
       body { background: white; color: #111; }
@@ -645,16 +638,15 @@
 
 <div class="page">
 
-  <!-- ── HERO ── -->
   <section class="hero">
     <div class="hero-text">
       <div class="hero-eyebrow">Astrophysicist &amp; Researcher</div>
       <h1 class="hero-name">Fahmi Muhammad<br><em>Al Farisy</em></h1>
-      <p class="hero-title">Assistant Researcher · Institut Teknologi Bandung</p>
+      <p class="hero-title">PhD Researcher · Swinburne University of Technology</p>
       <p class="hero-summary">
-        Astrophysics graduate probing the nature of dark matter through galaxy rotation curves.
-        Specialising in fuzzy and self-interacting dark matter models, Python-driven simulations,
-        and observational data analysis. Actively preparing for PhD studies.
+        Exploring galaxy evolution and the nature of dark matter using high-redshift kinematics. 
+        Specializing in JWST NIRSpec MSA-3D data analysis and forward dynamical modeling 
+        to test Fuzzy and Self-Interacting Dark Matter models across cosmic time.
       </p>
       <div class="hero-links">
         <a href="mailto:fahmi.alfarisy@gmail.com" class="hero-link"><i class="fas fa-envelope"></i> Email</a>
@@ -667,11 +659,6 @@
 
     <div class="hero-visual">
       <div class="photo-frame">
-        <!-- 
-          PHOTO INSTRUCTIONS:
-          Replace the <div class="photo-placeholder"> below with:
-          <img src="images/Fahmi Muhammad Al Farisy.jpg" alt="Fahmi Muhammad Al Farisy" />
-        -->
         <div class="photo-placeholder">
           <i class="fas fa-user-astronaut"></i>
           <span>Replace with your photo</span>
@@ -699,21 +686,19 @@
     </div>
   </section>
 
-  <!-- ── NAV ── -->
   <nav class="sticky-nav">
     <div class="nav-inner">
-      <button class="nav-btn" onclick="scrollTo('experience')">Experience</button>
-      <button class="nav-btn" onclick="scrollTo('education')">Education</button>
-      <button class="nav-btn" onclick="scrollTo('publications')">Publications</button>
-      <button class="nav-btn" onclick="scrollTo('skills')">Skills</button>
-      <button class="nav-btn" onclick="scrollTo('awards')">Awards</button>
-      <button class="nav-btn" onclick="scrollTo('conferences')">Conferences</button>
-      <button class="nav-btn" onclick="scrollTo('gallery')">Gallery</button>
-      <button class="nav-btn" onclick="scrollTo('language')">Language</button>
+      <button class="nav-btn" onclick="scrollToSection('experience')">Experience</button>
+      <button class="nav-btn" onclick="scrollToSection('education')">Education</button>
+      <button class="nav-btn" onclick="scrollToSection('publications')">Publications</button>
+      <button class="nav-btn" onclick="scrollToSection('skills')">Skills</button>
+      <button class="nav-btn" onclick="scrollToSection('awards')">Awards</button>
+      <button class="nav-btn" onclick="scrollToSection('conferences')">Conferences</button>
+      <button class="nav-btn" onclick="scrollToSection('gallery')">Gallery</button>
+      <button class="nav-btn" onclick="scrollToSection('language')">Language</button>
     </div>
   </nav>
 
-  <!-- ── EXPERIENCE ── -->
   <section class="section" id="experience">
     <div class="section-header">
       <span class="section-label">01</span>
@@ -724,52 +709,49 @@
     <div class="timeline">
       <div class="card">
         <div class="card-meta">
+          <div class="card-role">PhD Researcher</div>
+          <div class="card-date">2025 — Present</div>
+        </div>
+        <div class="card-org">Swinburne University of Technology</div>
+        <div class="card-body">
+          <ul>
+            <li>Analyzing high-redshift galaxy kinematics using JWST NIRSpec MSA-3D data.</li>
+            <li>Applying forward dynamical modeling (DysmalPy) to study dark matter fractions.</li>
+            <li>Testing Fuzzy Dark Matter (FDM) and SIDM models in galaxies at z ~ 0.5 – 1.7.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">
           <div class="card-role">Assistant Researcher</div>
-          <div class="card-date">Mar 2024 — Present</div>
+          <div class="card-date">Mar 2024 — Feb 2025</div>
         </div>
         <div class="card-org">Institut Teknologi Bandung</div>
         <div class="card-body">
           <ul>
-            <li>Researching alternative dark matter models using galaxy rotation curve data</li>
-            <li>Developed Python scripts for data analysis and simulations of dark matter parameters</li>
-            <li>Contributing to publications on fuzzy and self-interacting dark matter</li>
+            <li>Researched alternative dark matter models using galaxy rotation curve data.</li>
+            <li>Developed Python scripts for simulation and dark matter parameter analysis.</li>
           </ul>
         </div>
       </div>
 
       <div class="card">
         <div class="card-meta">
-          <div class="card-role">International Virtual Course Tutor</div>
-          <div class="card-date">Aug – Sep 2024</div>
+          <div class="card-role">Assistant Lecturer / Tutor</div>
+          <div class="card-date">Aug 2023 — Jul 2024</div>
         </div>
         <div class="card-org">Institut Teknologi Bandung</div>
         <div class="card-body">
           <ul>
-            <li>Facilitated the course <em>"The Next Generation Surveys for Multimessenger Astronomy"</em></li>
-            <li>Guided participants in advanced astronomy data analysis techniques</li>
-            <li>Utilised CIGALE (Code Investigating GALaxy Emission) for galaxy SED fitting</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="card">
-        <div class="card-meta">
-          <div class="card-role">Assistant Lecturer</div>
-          <div class="card-date">Aug 2023 – Jul 2024</div>
-        </div>
-        <div class="card-org">Institut Teknologi Bandung</div>
-        <div class="card-body">
-          <ul>
-            <li>Tutored 50+ students in Python, numerical methods, and advanced astrophysics</li>
-            <li>Led tutorials: Computational Astronomy, Mathematical Methods, Cosmology, Galaxies, Astrophysical Thermodynamics</li>
-            <li>Contributed to a study assessing light pollution around Bosscha Observatory</li>
+            <li>Tutored 50+ students in Python, Numerical Methods, and Cosmology.</li>
+            <li>Facilitated International Virtual Courses on Multi-messenger Astronomy.</li>
           </ul>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── EDUCATION ── -->
   <section class="section" id="education">
     <div class="section-header">
       <span class="section-label">02</span>
@@ -780,14 +762,24 @@
     <div class="timeline">
       <div class="card">
         <div class="card-meta">
+          <div class="card-role">PhD in Astrophysics</div>
+          <div class="card-date">In Progress</div>
+        </div>
+        <div class="card-org">Swinburne University of Technology</div>
+        <div class="card-body">
+          <p>Centre for Astrophysics and Supercomputing (CAS)</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-meta">
           <div class="card-role">M.Sc. Astronomy</div>
           <div class="card-date">Graduated Nov 2024</div>
         </div>
-        <div class="card-org">Institut Teknologi Bandung · Minor: Galaxy &amp; Cosmology</div>
+        <div class="card-org">Institut Teknologi Bandung</div>
         <div class="card-body">
           <div class="edu-gpa">GPA 4.00 / 4.00</div>
-          <p>Supervisor: Dr.rer.nat. Hesti Retno Tri Wulandari</p>
-          <p style="margin-top:8px;font-style:italic;">Thesis: Constraining Fuzzy Dark Matter and Self-Interacting Dark Matter Parameters Using Dwarf Galaxy Data from SPARC and LITTLE THINGS in 3D</p>
+          <p style="font-style:italic;">Thesis: Constraining Fuzzy Dark Matter and Self-Interacting Dark Matter Parameters Using Dwarf Galaxy Data in 3D</p>
         </div>
       </div>
 
@@ -796,17 +788,14 @@
           <div class="card-role">B.Sc. Astronomy</div>
           <div class="card-date">Graduated Jul 2023</div>
         </div>
-        <div class="card-org">Institut Teknologi Bandung · Minor: Galaxy &amp; Cosmology</div>
+        <div class="card-org">Institut Teknologi Bandung</div>
         <div class="card-body">
           <div class="edu-gpa">GPA 3.57 / 4.00</div>
-          <p>Supervisor: Dr.rer.nat. Hesti Retno Tri Wulandari</p>
-          <p style="margin-top:8px;font-style:italic;">Thesis: Dark Matter Density Profile in the Inner Radius of Massive Dwarf Galaxies</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── PUBLICATIONS ── -->
   <section class="section" id="publications">
     <div class="section-header">
       <span class="section-label">03</span>
@@ -818,13 +807,11 @@
       <div class="pub-title">Properties of Standard, Fuzzy, and Self-Interacting Dark Matter Haloes in Dwarf Galaxies</div>
       <div class="pub-authors">Fahmi M. Al Farisy, Hesti R.T. Wulandari, Azriel J. Dante</div>
       <a href="https://doi.org/10.1088/1674-4527/adc29c" class="pub-doi" target="_blank">
-        <i class="fas fa-external-link-alt"></i>
-        DOI: 10.1088/1674-4527/adc29c
+        <i class="fas fa-external-link-alt"></i> DOI: 10.1088/1674-4527/adc29c
       </a>
     </div>
   </section>
 
-  <!-- ── SKILLS ── -->
   <section class="section" id="skills">
     <div class="section-header">
       <span class="section-label">04</span>
@@ -834,179 +821,89 @@
 
     <div class="skills-grid">
       <div class="skill-group">
+        <div class="skill-group-title">Astrophysics</div>
+        <div class="tag-list">
+          <span class="tag">JWST Data</span>
+          <span class="tag">DysmalPy</span>
+          <span class="tag">Galaxy Kinematics</span>
+          <span class="tag">Dark Matter Modelling</span>
+          <span class="tag">Rotation Curves</span>
+        </div>
+      </div>
+      <div class="skill-group">
         <div class="skill-group-title">Programming</div>
         <div class="tag-list">
           <span class="tag">Python</span>
           <span class="tag">NumPy</span>
           <span class="tag">SciPy</span>
-          <span class="tag">Matplotlib</span>
-          <span class="tag">Astropy</span>
-          <span class="tag">emcee</span>
           <span class="tag">MCMC</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Data Analysis</div>
-        <div class="tag-list">
-          <span class="tag">Statistical Methods</span>
-          <span class="tag">Rotation Curves</span>
-          <span class="tag">SED Fitting</span>
-          <span class="tag">CIGALE</span>
-          <span class="tag">Dark Matter Modelling</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Research</div>
-        <div class="tag-list">
-          <span class="tag">Scientific Writing</span>
+          <span class="tag">emcee</span>
           <span class="tag">LaTeX</span>
-          <span class="tag">Peer Review</span>
-          <span class="tag">Simulations</span>
-          <span class="tag">Literature Review</span>
-        </div>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Teaching &amp; Soft Skills</div>
-        <div class="tag-list">
-          <span class="tag">Tutoring</span>
-          <span class="tag">Public Speaking</span>
-          <span class="tag">Team Leadership</span>
-          <span class="tag">Project Planning</span>
-          <span class="tag">Cross-cultural Communication</span>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ── AWARDS ── -->
   <section class="section" id="awards">
     <div class="section-header">
       <span class="section-label">05</span>
-      <h2 class="section-title">Awards &amp; Recognition</h2>
+      <h2 class="section-title">Awards</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="award-card">
       <div class="award-icon"><i class="fas fa-medal"></i></div>
       <div>
         <div class="award-title">Ganesha Talent Assistantship 100 (GTA 100) Scholarship</div>
-        <div class="award-org">Institut Teknologi Bandung · Aug 2023 – Aug 2024</div>
-        <div class="award-body">Awarded to fast-track students for part-time contributions to the university. Provided full tuition coverage in recognition of outstanding academic performance and research potential.</div>
+        <div class="award-org">Institut Teknologi Bandung</div>
       </div>
     </div>
   </section>
 
-  <!-- ── CONFERENCES ── -->
   <section class="section" id="conferences">
     <div class="section-header">
       <span class="section-label">06</span>
-      <h2 class="section-title">Conferences &amp; Presentations</h2>
+      <h2 class="section-title">Conferences</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="conf-card">
       <div>
         <div class="conf-name">Kashiwa-no-ha Dark Matter Symposium 2024</div>
-        <div class="conf-title"><em>"A Study of Cold, Fuzzy, and Self-Interacting Dark Matter Halos in Dwarf Galaxies"</em><br><span style="font-size:11px;color:var(--text-muted)">Poster Presentation</span></div>
+        <div class="conf-title"><em>"A Study of Cold, Fuzzy, and SIDM Halos in Dwarf Galaxies"</em></div>
       </div>
-      <a href="images/files/Kashiwa_Poster.pdf" class="conf-link" target="_blank"><i class="fas fa-file-pdf"></i> View Poster</a>
-    </div>
-
-    <div class="conf-card" style="margin-top:2px;">
-      <div>
-        <div class="conf-name">Professional Development</div>
-        <div class="conf-title">International Virtual Course: Introduction to Astrophysical Modelling and Computation<br>
-        <span style="font-size:11px;color:var(--text-muted)">FreeCodeCamp · Data Analysis with Python</span></div>
-      </div>
+      <a href="images/files/Kashiwa_Poster.pdf" class="conf-link" target="_blank">View Poster</a>
     </div>
   </section>
 
-  <!-- ── GALLERY ── -->
   <section class="section" id="gallery">
     <div class="section-header">
       <span class="section-label">07</span>
       <h2 class="section-title">Gallery</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="gallery-grid">
-      <!--
-        HOW TO ADD PHOTOS:
-        Replace each <div class="gallery-slot"> with:
-        <div class="gallery-slot has-img">
-          <img src="images/your-photo.jpg" alt="Caption here" />
-        </div>
-        
-        Suggested photos:
-        - Conference poster presentation
-        - Lab / research photos
-        - Teaching sessions
-        - Observatory visits
-        - Graduation photo
-      -->
-      <div class="gallery-slot">
-        <i class="fas fa-image"></i>
-        <span>Conference / Symposium</span>
-      </div>
-      <div class="gallery-slot">
-        <i class="fas fa-microscope"></i>
-        <span>Lab / Research</span>
-      </div>
-      <div class="gallery-slot">
-        <i class="fas fa-chalkboard-teacher"></i>
-        <span>Teaching / Tutoring</span>
-      </div>
-      <div class="gallery-slot">
-        <i class="fas fa-telescope"></i>
-        <span>Observatory Visit</span>
-      </div>
-      <div class="gallery-slot">
-        <i class="fas fa-graduation-cap"></i>
-        <span>Graduation</span>
-      </div>
-      <div class="gallery-slot">
-        <i class="fas fa-plus"></i>
-        <span>Add more photos</span>
-      </div>
+      <div class="gallery-slot"><i class="fas fa-image"></i><span>Conference</span></div>
+      <div class="gallery-slot"><i class="fas fa-microscope"></i><span>Research</span></div>
+      <div class="gallery-slot"><i class="fas fa-graduation-cap"></i><span>Graduation</span></div>
     </div>
-    <p class="gallery-caption">Replace placeholder slots with your actual images — see comments in the HTML for instructions.</p>
   </section>
 
-  <!-- ── LANGUAGE ── -->
   <section class="section" id="language">
     <div class="section-header">
       <span class="section-label">08</span>
-      <h2 class="section-title">Language Proficiency</h2>
+      <h2 class="section-title">Language (IELTS)</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="ielts-grid">
-      <div class="ielts-item overall">
-        <span class="ielts-score">8.0</span>
-        <span class="ielts-label">Overall</span>
-      </div>
-      <div class="ielts-item">
-        <span class="ielts-score">9.0</span>
-        <span class="ielts-label">Reading</span>
-      </div>
-      <div class="ielts-item">
-        <span class="ielts-score">9.0</span>
-        <span class="ielts-label">Listening</span>
-      </div>
-      <div class="ielts-item">
-        <span class="ielts-score">7.0</span>
-        <span class="ielts-label">Writing</span>
-      </div>
-      <div class="ielts-item">
-        <span class="ielts-score">6.5</span>
-        <span class="ielts-label">Speaking</span>
-      </div>
+      <div class="ielts-item overall"><span class="ielts-score">8.0</span><span class="ielts-label">Overall</span></div>
+      <div class="ielts-item"><span class="ielts-score">9.0</span><span class="ielts-label">Reading</span></div>
+      <div class="ielts-item"><span class="ielts-score">9.0</span><span class="ielts-label">Listening</span></div>
+      <div class="ielts-item"><span class="ielts-score">7.0</span><span class="ielts-label">Writing</span></div>
+      <div class="ielts-item"><span class="ielts-score">6.5</span><span class="ielts-label">Speaking</span></div>
     </div>
   </section>
 
-  <!-- ── FOOTER ── -->
   <footer>
-    <span>Fahmi Muhammad Al Farisy · Bandung, Indonesia</span>
+    <span>Fahmi Muhammad Al Farisy · Melbourne, Australia</span>
     <span>
       <a href="mailto:fahmi.alfarisy@gmail.com">fahmi.alfarisy@gmail.com</a>
       &nbsp;·&nbsp;
@@ -1014,9 +911,8 @@
     </span>
   </footer>
 
-</div><!-- /page -->
+</div>
 
-<!-- ── STARS CANVAS ── -->
 <script>
 (function() {
   const canvas = document.getElementById('stars');
@@ -1038,7 +934,6 @@
         x: Math.random() * W,
         y: Math.random() * H,
         r: Math.random() * 1.2 + 0.2,
-        a: Math.random(),
         speed: Math.random() * 0.004 + 0.001,
         phase: Math.random() * Math.PI * 2
       });
@@ -1062,19 +957,29 @@
   requestAnimationFrame(draw);
 })();
 
-// ── NAV scroll highlight ──
-function scrollTo(id) {
+// FIXED: Renamed to avoid window.scrollTo conflict
+function scrollToSection(id) {
   const el = document.getElementById(id);
-  if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  if (el) {
+    const offset = 100; // Account for sticky nav
+    const bodyRect = document.body.getBoundingClientRect().top;
+    const elementRect = el.getBoundingClientRect().top;
+    const elementPosition = elementRect - bodyRect;
+    const offsetPosition = elementPosition - offset;
+
+    window.scrollTo({
+      top: offsetPosition,
+      behavior: 'smooth'
+    });
+  }
 }
 
-// ── Section reveal ──
 const observer = new IntersectionObserver(entries => {
   entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
 }, { threshold: 0.08 });
 document.querySelectorAll('.section').forEach(s => observer.observe(s));
 
-// ── Active nav on scroll ──
+// Active nav on scroll
 const sections = document.querySelectorAll('.section[id]');
 const navBtns = document.querySelectorAll('.nav-btn');
 window.addEventListener('scroll', () => {
@@ -1083,7 +988,8 @@ window.addEventListener('scroll', () => {
     if (window.scrollY >= s.offsetTop - 120) current = s.id;
   });
   navBtns.forEach(b => {
-    b.classList.toggle('active', b.getAttribute('onclick').includes(current));
+    const targetId = b.getAttribute('onclick').match(/'([^']+)'/)[1];
+    b.classList.toggle('active', targetId === current);
   });
 }, { passive: true });
 </script>
